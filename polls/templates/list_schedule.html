@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Schedule</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <form class="schedule_form">
+            <label>
+                <h3>Insira a data:</h3>
+                <input class="inputing" type="date" name="schedule" value="{{today}}" />
+            </label>
+        
+            <button type="submit" class="btn btn-primary">Verificar</button>
+            <a class="btn btn-dark" href="schedule" role="button">Registrar Tarefa</a>
+            <a class="btn btn-success" href="admin/polls/schedule/" role="button">Editar Tarefas</a>
+        </form>
+        <div>
+            <h2>
+                <p>Encontrada(s) {{all_results|length}} tarefas para {{date.day}}/{{date.month}}
+                </p>
+            </h2>
+        </div>
+        {% if all_results|length > 0%}
+            <ul class="list-group">
+            {% for task in all_results %}
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{ task.description }}
+                    <span class="badge badge-primary badge-pill">{{ task.date }}</span>
+                  </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <h2> Nenhuma tarefa encontrada para {{date}} :)</h2>
+        {% endif %}
+    </body>
+    <footer>
+        <hr>
+        Developed by: Leandro Alves
+    </footer>
+</html>
