@@ -37,7 +37,6 @@ def check_schecule(date: str) -> dict:
 
 def home(request) -> render:
     date = request.GET.get("schedule")
-    print(date)
     if date:
         final_date = datetime.strptime(date, '%Y-%m-%d').date()
     else: 

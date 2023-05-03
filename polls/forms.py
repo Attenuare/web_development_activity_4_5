@@ -22,6 +22,8 @@ class ScheduleForm(forms.ModelForm):
 
     def clean_description(self):
         description = self.cleaned_data['description']
+        if not len(description) > 0:
+            raise ValidationError('Necessário adicionar a descrição.')
         return description.strip().title()
 
     def clean_date(self):

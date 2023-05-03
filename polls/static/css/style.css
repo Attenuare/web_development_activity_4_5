@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(76, 123, 198);
+    background-color: rgb(255, 255, 255);
 }
 .schedule_form, h2 {
     font-family: Georgia, serif;;
@@ -14,6 +14,7 @@ body {
     margin: auto;
     border-radius: 10%;
 }
+
 .card {
     display: inline-block;
     box-shadow: 0 4px 8px 0 rgba(106, 14, 14, 0.2);
